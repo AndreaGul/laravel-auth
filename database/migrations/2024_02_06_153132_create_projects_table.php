@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('lang', 60)->nullable();
             $table->text('link_github')->nullable();
         
-
+            
             $table->timestamps();
         });
     }
