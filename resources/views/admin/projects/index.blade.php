@@ -5,6 +5,7 @@
   <button class="btn btn-primary m-2">
           <a class="text-white text-decoration-none" href="{{ route('admin.projects.create')}}">Create</a>
   </button>
+  
   <table class="table">
   <thead>
     <tr>
@@ -13,7 +14,7 @@
       <th scope="col">Autore</th>
       <th scope="col">Linguaggio</th>
       <th class="text-center" scope="col">Link progetto</th>
-      <th class="text-center" scope="col">info</th>
+      <th class="text-center" scope="col">Caratteristiche</th>
     </tr>
   </thead>
   <tbody>
@@ -24,15 +25,17 @@
       <td>{{$project->title}}</td>
       <td>{{$project->lang}}</td>
       <td class="text-center">
-        <button class="btn  btn-success ">
+        <button class="btn  btn-dark ">
           <a class="text-white text-decoration-none " href="{{$project->link_github}}"><i class="fa-brands fa-github"></i></a>
         </button>
       </td>
-      <td class="text-center" >
+      <td class="text-center d-flex gap-1" >
         <button class="btn  btn-info">
           <a class="text-white text-decoration-none" href="{{ route('admin.projects.show', $project->id)}}">Info</a>
         </button>
-       
+       <button class="btn  btn-success">
+          <a class="text-white text-decoration-none" href="{{ route('admin.projects.edit', $project->id)}}">Edit</a>
+        </button>
       </td>
     </tr>
     @endforeach

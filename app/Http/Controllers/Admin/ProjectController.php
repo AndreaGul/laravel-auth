@@ -37,16 +37,19 @@ class ProjectController extends Controller
         $data = $request->validated();
         
         $project = new Project();
-        $project->title = $data['title'];
-        $project->slug = Str::of($data['title'])->slug('-');
-        $project->author = $data['author'];
-        $project->description = $data['description'];
-        $project->creation_date = $data['creation_date'] ;
-        $project->last_update = $data['last_update'];
-        $project->contributors = $data['contributors'];
-        $project->lang = $data['lang'];
-        $project->link_github = $data['link_github'];
 
+       
+        // $project->title = $data['title'];
+        // $project->author = $data['author'];
+        // $project->description = $data['description'];
+        // $project->creation_date = $data['creation_date'] ;
+        // $project->last_update = $data['last_update'];
+        // $project->contributors = $data['contributors'];
+        // $project->lang = $data['lang'];
+        // $project->link_github = $data['link_github'];
+        $project -> fill($data);
+        $project->slug = Str::of($data['title'])->slug('-'); 
+        dd($project);
         $project->save();
         
         return redirect()->route('admin.projects.index');
@@ -64,17 +67,22 @@ class ProjectController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
-    {
-        //
+    public function edit(Project $project)
+    {   
+        
+        return view('admin.projects.edit', compact('project'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(StoreProjectRequest $request, Project $project)
     {
-        //
+        $data = $request->validated();
+        $project -> update($data);
+        $project->slug = Str::of($data['title'])->slug('-');
+        
+        return redirect()->route('admin.projects.index');
     }
 
     /**
