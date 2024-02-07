@@ -49,7 +49,7 @@ class ProjectController extends Controller
         // $project->link_github = $data['link_github'];
         $project -> fill($data);
         $project->slug = Str::of($data['title'])->slug('-'); 
-        dd($project);
+        
         $project->save();
         
         return redirect()->route('admin.projects.index');
@@ -60,8 +60,12 @@ class ProjectController extends Controller
      * Display the specified resource.
      */
     public function show(Project $project)
-    {
-         return view('admin.projects.show', compact('project'));
+    {   
+        //ricerca in slug se non si va a cambiare la ricerca di default con i parameters nelle resource route
+        //public function show(String $slug)
+        // $product = Project::where('slug', $slug)->first();
+        // dd($product);
+        return view('admin.projects.show', compact('project'));
     }
 
     /**
@@ -79,8 +83,9 @@ class ProjectController extends Controller
     public function update(StoreProjectRequest $request, Project $project)
     {
         $data = $request->validated();
-        $project -> update($data);
         $project->slug = Str::of($data['title'])->slug('-');
+        $project -> update($data);
+        
         
         return redirect()->route('admin.projects.index');
     }

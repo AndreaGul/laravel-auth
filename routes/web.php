@@ -36,7 +36,7 @@ Route::middleware(['auth','verified'])
         Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
 
-        Route::resource('projects', ProjectController::class);
+        Route::resource('projects', ProjectController::class)->parameters(['projects' => 'project:slug']);
         //es altra rotta
         // Route::get('/andrea', function () {
         //    return view('dashboard');

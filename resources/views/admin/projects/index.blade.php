@@ -31,10 +31,10 @@
       </td>
       <td class="text-center d-flex gap-1" >
         <button class="btn  btn-info">
-          <a class="text-white text-decoration-none" href="{{ route('admin.projects.show', $project->id)}}">Info</a>
+          <a class="text-white text-decoration-none" href="{{ route('admin.projects.show', $project)}}">Info</a>
         </button>
        <button class="btn  btn-success">
-          <a class="text-white text-decoration-none" href="{{ route('admin.projects.edit', $project->id)}}">Edit</a>
+          <a class="text-white text-decoration-none" href="{{ route('admin.projects.edit', $project)}}">Edit</a>
         </button>
         <form action="{{route('admin.projects.destroy',$project->id)}}" method="POST">
           @csrf
