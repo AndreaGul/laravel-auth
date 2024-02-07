@@ -36,7 +36,7 @@
        <button class="btn  btn-success">
           <a class="text-white text-decoration-none" href="{{ route('admin.projects.edit', $project)}}">Edit</a>
         </button>
-        <form action="{{route('admin.projects.destroy',$project->id)}}" method="POST">
+        <form action="{{route('admin.projects.destroy',$project)}}" method="POST">
           @csrf
 
           @method('DELETE')

@@ -16,7 +16,7 @@
       @endif
   </div>
    
- <form class="row g-3 my-3" action="{{route('admin.projects.update', $project->id)}}" method="POST">
+ <form class="row g-3 my-3" action="{{route('admin.projects.update', $project)}}" method="POST">
   @csrf
 
   @method('PUT')
