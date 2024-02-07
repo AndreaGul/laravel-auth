@@ -36,6 +36,15 @@
        <button class="btn  btn-success">
           <a class="text-white text-decoration-none" href="{{ route('admin.projects.edit', $project->id)}}">Edit</a>
         </button>
+        <form action="{{route('admin.projects.destroy',$project->id)}}" method="POST">
+          @csrf
+
+          @method('DELETE')
+          <button class="btn  btn-danger">
+            <i class="fa-solid fa-xmark"></i></a>
+          </button>
+        </form>
+        
       </td>
     </tr>
     @endforeach
