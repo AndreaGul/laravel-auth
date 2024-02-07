@@ -10,3 +10,7 @@ Iniziamo con il definire il layout, modello, migrazione, controller e rotte nece
 3. Per la parte di back-office creiamo un resource controller Admin\ProjectController per gestire tutte le operazioni CRUD dei progetti
    Bonus
    Implementiamo la validazione dei dati dei Progetti nelle operazioni CRUD che lo richiedono usando due form requests.
+
+Completare la parte di CRUD (Create, Read, Update, Delete).
+Se siete a buon punto, concentratevi sulla personalizzazione e riprendendo quello che abbiamo visto a lezione migliorate la User Experience aggiungendo notifiche relative alle azioni compiute (record aggiornato / modificato / cancellato correttamente).
+Approfittatene anche per fare un refactor del vostro layout, utilizzando @include per eventuali parti di codice che si ripetono (vedi messaggi di notifica e di errore).
