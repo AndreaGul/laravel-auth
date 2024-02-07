@@ -34,7 +34,23 @@ class ProjectController extends Controller
      */
     public function store(StoreProjectRequest $request)
     {   
+        $data = $request->validated();
         
+        $project = new Project();
+        $project->title = $data['title'];
+        $project->slug = Str::of($data['title'])->slug('-');
+        $project->author = $data['author'];
+        $project->description = $data['description'];
+        $project->creation_date = $data['creation_date'] ;
+        $project->last_update = $data['last_update'];
+        $project->contributors = $data['contributors'];
+        $project->lang = $data['lang'];
+        $project->link_github = $data['link_github'];
+
+        $project->save();
+        
+        return redirect()->route('admin.projects.index');
+  
     }
 
     /**
